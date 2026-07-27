@@ -12,7 +12,7 @@ import AppointmentTable from "@/components/dashboard/AppointmentTable";
 import { supabase } from "@/lib/supabase";
 
 export default async function AppointmentsPage() {
-  const { data: appointments } = await supabase
+  const { data: appointments, error } = await supabase
     .from("appointments")
     .select("*")
     .order("created_at", { ascending: false });
